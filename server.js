@@ -12,9 +12,9 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
     console.log("接続しました");
 
-    socket.on("chat message", (msg) => {
-        //console.log("メッセージ：" + msg);
-        io.emit("chat message", msg);
+    socket.on("chat message", (data) => {
+        // 受け取ったデータをそのまま送信
+        io.emit("chat message", data);
     });
 });
 
